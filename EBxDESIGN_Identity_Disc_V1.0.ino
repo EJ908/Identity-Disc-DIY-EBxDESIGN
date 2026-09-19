@@ -79,8 +79,8 @@ portMUX_TYPE stateMux = portMUX_INITIALIZER_UNLOCKED;
 CRGB innerColor = CRGB(0, 255, 255);
 CRGB outerColor = CRGB(0, 255, 255);
 
-uint8_t innerBrightness = 255;
-uint8_t outerBrightness = 255;
+uint8_t innerBrightness = 255;  // 100%
+uint8_t outerBrightness = 255;  // 100%
 
 
 // ============================================================
@@ -150,7 +150,8 @@ CRGB buttonColors[] = {
   CRGB(255, 0, 0),     // Red
   CRGB(255, 80, 0),    // Orange
   CRGB(255, 255, 255), // White
-  CRGB(180, 0, 255)    // Purple
+  CRGB(180, 0, 255),   // Purple
+  CRGB(255, 20, 147)   // Pink
 
 };
 
@@ -160,7 +161,8 @@ const char* buttonColorNames[] = {
   "Red",
   "Orange",
   "White",
-  "Purple"
+  "Purple",
+  "Pink"
 
 };
 
@@ -187,7 +189,7 @@ const char* buttonBrightnessNames[] = {
 
 };
 
-uint8_t currentButtonBrightness = 0;
+uint8_t currentButtonBrightness = 0;  // starts at 100%
 
 
 // ============================================================
@@ -544,7 +546,7 @@ void buttonDoublePress() {
 
   currentButtonColor++;
 
-  if (currentButtonColor >= 5) {
+  if (currentButtonColor >= 6) {
 
     currentButtonColor = 0;
   }
